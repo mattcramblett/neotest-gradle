@@ -1,7 +1,7 @@
 local lib = require('neotest.lib')
 local find_project_directory = require('neotest-gradle.hooks.find_project_directory')
 
---- Fiends either an executable file named `gradlew` in any parent directory of
+--- Finds either an executable file named `gradlew` in any parent directory of
 --- the project or falls back to a binary called `gradle` that must be available
 --- in the users PATH.
 ---

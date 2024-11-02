@@ -111,7 +111,8 @@ return function(build_specfication, _, tree)
           results[matched_position.id] = result
         end
 
-        -- TODO: What to do here?
+        vim.notify(string.format("Building test output for:\ntest_case_node: %s\nmatched_position: %d\njuris_reports: %s", 
+            test_case_node, matched_position, vim.inspect(juris_report)), vim.log.levels.INFO)
       end
     end
   end
