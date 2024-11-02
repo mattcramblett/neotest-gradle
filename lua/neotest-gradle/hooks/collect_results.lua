@@ -97,6 +97,9 @@ return function(build_specfication, _, tree)
   local results_directory = build_specfication.context.test_resuls_directory
   local juris_reports = parse_xml_files_from_directory(results_directory)
 
+  vim.notify(string.format("Building test output for:\nresults_directory: %s\njuris_reports: %s",
+      results_directory, vim.inspect(juris_reports)), vim.log.levels.INFO)
+
   for _, juris_report in pairs(juris_reports) do
     for _, test_suite_node in pairs(asList(juris_report.testsuite)) do
       for _, test_case_node in pairs(asList(test_suite_node.testcase)) do
@@ -110,9 +113,6 @@ return function(build_specfication, _, tree)
           local result = { status = status, short = short_message, errors = { error } }
           results[matched_position.id] = result
         end
-
-        vim.notify(string.format("Building test output for:\ntest_case_node: %s\nmatched_position: %d\njuris_reports: %s", 
-            test_case_node, matched_position, vim.inspect(juris_report)), vim.log.levels.INFO)
       end
     end
   end
