@@ -1,4 +1,4 @@
-local TEST_FILE_PATTERNS = { 'Test.kt$', 'Test.java$' }
+local TEST_FILE_PATTERNS = { 'Test.kt$', 'Tests.ky$', 'Test.java$' }
 
 --- Predicate function to determine if a file is a test file or not
 --- This simply checks if the file name matches certain patterns based on
