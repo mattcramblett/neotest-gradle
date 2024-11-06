@@ -46,7 +46,10 @@ local function find_position_for_test_case(tree, test_case_node)
   local package_and_class = (test_case_node._attr.classname:gsub('%$', '%.'))
 
   for _, position in tree:iter() do
-    if position.handle_name == function_name and vim.startswith(position.id, package_and_class) then
+    if
+      position.handle_name == function_name
+      or position.name == function_name and vim.startswith(position.id, package_and_class)
+    then
       return position
     end
   end
